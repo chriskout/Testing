@@ -1,0 +1,223 @@
+Script started on 2019-11-08 17:55:09-0500
+]0;chrisout@cisc210: ~/proj_3/xv6-publicchrisout@cisc210:~/proj_3/xv6-public$ make qemu
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie   -c -o sysproc.o sysproc.c
+ld -m    elf_i386 -T kernel.ld -o kernel entry.o bio.o console.o exec.o file.o fs.o ide.o ioapic.o kalloc.o kbd.o lapic.o log.o main.o mp.o picirq.o pipe.o proc.o sleeplock.o spinlock.o string.o swtch.o syscall.o sysfile.o sysproc.o trapasm.o trap.o uart.o vectors.o vm.o  -b binary initcode entryother
+objdump -S kernel > kernel.asm
+objdump -t kernel | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > kernel.sym
+dd if=/dev/zero of=xv6.img count=10000
+10000+0 records in
+10000+0 records out
+5120000 bytes (5.1 MB, 4.9 MiB) copied, 0.0792089 s, 64.6 MB/s
+dd if=bootblock of=xv6.img conv=notrunc
+1+0 records in
+1+0 records out
+512 bytes copied, 0.00097008 s, 528 kB/s
+dd if=kernel of=xv6.img seek=1 conv=notrunc
+350+1 records in
+350+1 records out
+179336 bytes (179 kB, 175 KiB) copied, 0.00379576 s, 47.2 MB/s
+qemu-system-i386 -serial mon:stdio -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512  -display none
+xv6...
+cpu1: starting 1
+cpu0: starting 0
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+initcode
+1
+init
+1
+init
+init: starting sh
+1
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+2
+init
+$ ps
+2
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+3
+sh
+name, pid, state 
+init, 1 SLEEPING 
+ sh, 2 SLEEPING 
+ ps, 3, RUNNING 
+3
+ps
+2
+sh
+$ QEMU: Terminated
+]0;chrisout@cisc210: ~/proj_3/xv6-publicchrisout@cisc210:~/proj_3/xv6-public$ exit
+
+Script done on 2019-11-08 17:55:29-0500
