@@ -1,0 +1,2625 @@
+Script started on 2019-12-04 21:22:07-0500
+]0;chrisout@cisc210: ~/proj_4/proj_3/xv6-publicchrisout@cisc210:~/proj_4/proj_3/xv6-public$ make qemu
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie   -c -o proc.o proc.c
+ld -m    elf_i386 -T kernel.ld -o kernel entry.o bio.o console.o exec.o file.o fs.o ide.o ioapic.o kalloc.o kbd.o lapic.o log.o main.o mp.o picirq.o pipe.o proc.o sleeplock.o spinlock.o string.o swtch.o syscall.o sysfile.o sysproc.o trapasm.o trap.o uart.o vectors.o vm.o  -b binary initcode entryother
+objdump -S kernel > kernel.asm
+objdump -t kernel | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > kernel.sym
+dd if=/dev/zero of=xv6.img count=10000
+10000+0 records in
+10000+0 records out
+5120000 bytes (5.1 MB, 4.9 MiB) copied, 0.113951 s, 44.9 MB/s
+dd if=bootblock of=xv6.img conv=notrunc
+1+0 records in
+1+0 records out
+512 bytes copied, 0.000776973 s, 659 kB/s
+dd if=kernel of=xv6.img seek=1 conv=notrunc
+352+1 records in
+352+1 records out
+180484 bytes (180 kB, 176 KiB) copied, 0.0038109 s, 47.4 MB/s
+qemu-system-i386 -serial mon:stdio -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512  -display none
+xv6...
+cpu1: starting 1
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+Decrementing now, level is 0, I am program 0
+cpu0: starting 0
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 1
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 16 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 15 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 14 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 13 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 12 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 11 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 10 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 9 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 8 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 7 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 6 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 5 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 4 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 2 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+1 is the pid
+initcode is the program name
+3 is the q number. 9 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 1
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 16 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 15 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 14 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 13 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 12 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 11 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 4 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 5 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 8 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 1
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 16 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 15 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 14 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 13 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 12 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 11 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 10 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 9 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 8 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 7 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 6 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 5 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 4 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 3 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 2 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+initcode is the program name
+2 is the q number. 1 is the idle count. 1 is the is the iter's left. 2 is the maxq 
+
+Decrementing now, level is 1, I am program 1
+1 is the pid
+initcode is the program name
+1 is the q number. 1 is the idle count. 24 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+initcode is the program name
+1 is the q number. 1 is the idle count. 23 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+initcode is the program name
+3 is the q number. 3 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+init: start1 is the pid
+init is the program name
+3 is the q number. 3 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+ing sh
+1 is the pid
+init is the program name
+3 is the q number. 5 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 9 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 2 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 3 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 3 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+1 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 1
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 16 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 15 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 14 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 13 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 12 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 11 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 10 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 9 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 8 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 7 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 6 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 5 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 4 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 3 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 2 is the is the iter's left. 2 is the maxq 
+
+1 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 1 is the is the iter's left. 2 is the maxq 
+
+Decrementing now, level is 1, I am program 1
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 24 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 23 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 22 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 21 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 20 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 19 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 18 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 17 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 16 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 15 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 14 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 13 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 12 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 11 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 10 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 9 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 8 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 7 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 6 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 5 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 4 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 3 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 2 is the is the iter's left. 1 is the maxq 
+
+1 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 1 is the is the iter's left. 1 is the maxq 
+
+Decrementing now, level is 0, I am program 1
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 32 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 31 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 30 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 29 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 28 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 27 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 26 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 25 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 24 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 23 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 22 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 21 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 20 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 19 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 18 is the is the iter's left. 0 is the maxq 
+
+1 is the pid
+init is the program name
+0 is the q number. 1 is the idle count. 17 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 4 is the idle count. 8 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 4 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 4 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 6 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 2 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 6 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 5 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 7 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 2
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 2 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+init is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 2
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 16 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 15 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 2 is the idle count. 14 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 13 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 12 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 2 is the idle count. 11 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 10 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 9 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 8 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 2 is the idle count. 7 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 6 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 5 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 4 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 3 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 6 is the idle count. 2 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+init is the program name
+2 is the q number. 1 is the idle count. 1 is the is the iter's left. 2 is the maxq 
+
+Decrementing now, level is 1, I am program 2
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 24 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 23 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 22 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 21 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 4 is the idle count. 20 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 19 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 18 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 17 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 2 is the idle count. 16 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 15 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 14 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 13 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 12 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+init is the program name
+1 is the q number. 1 is the idle count. 11 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 7 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+$ stressfs &; usertests   &; ls
+2 is the pid
+sh is the program name
+3 is the q number. 4 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 7 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+3 is the q number. 5 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+3 is the q number. 4 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+3 is the q number. 8 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+3 is the q number. 5 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+3 is the q number. 8 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+2 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 2
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 16 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 15 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 14 is the is the iter's left. 2 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 13 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 12 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 11 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 10 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 9 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 8 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 7 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 6 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 5 is the is the iter's left. 2 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 4 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 3 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 2 is the is the iter's left. 2 is the maxq 
+
+2 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 1 is the is the iter's left. 2 is the maxq 
+
+Decrementing now, level is 1, I am program 2
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 24 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 23 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 22 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 21 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 20 is the is the iter's left. 1 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 19 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 18 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 17 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 16 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 15 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 14 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 13 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 12 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 11 is the is the iter's left. 1 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 10 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 9 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 8 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 7 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 6 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 5 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 4 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 3 is the is the iter's left. 1 is the maxq 
+
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 2 is the is the iter's left. 1 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 1 is the is the iter's left. 1 is the maxq 
+
+Decrementing now, level is 0, I am program 2
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 32 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 31 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 30 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 29 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 28 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 27 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 26 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 25 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 24 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 23 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 22 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 21 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 20 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 19 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 18 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 17 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 16 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 15 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 14 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 13 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 12 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 11 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 10 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 9 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 8 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 7 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 6 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 5 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 4 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 3 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 2 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 1 is the is the iter's left. 0 is the maxq 
+
+Decrementing now, level is 0, I am program 2
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 32 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 31 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 30 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 29 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 28 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 27 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 26 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 25 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 24 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 23 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 22 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 21 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 20 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 19 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 481 is the idle count. 18 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 17 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 16 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 15 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 14 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 13 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 12 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 11 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 10 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 9 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 8 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 7 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 6 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 5 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 4 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 3 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 2 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 1 is the is the iter's left. 0 is the maxq 
+
+Decrementing now, level is 0, I am program 2
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 32 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 31 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 30 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 29 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 28 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 27 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 26 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 25 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 24 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 23 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 22 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 21 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 20 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 19 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 18 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 17 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 16 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 15 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 14 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 13 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 12 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 11 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 10 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 9 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 8 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 7 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 6 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 5 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 4 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 3 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 2 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 1 is the is the iter's left. 0 is the maxq 
+
+Decrementing now, level is 0, I am program 2
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 32 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 31 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 30 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 29 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 28 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 27 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 26 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 25 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 24 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 23 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 22 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 21 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 20 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 19 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 18 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 17 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 16 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 15 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 14 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 13 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 12 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 11 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 10 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 9 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 8 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 7 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 6 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 5 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 4 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 3 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 2 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 1 is the is the iter's left. 0 is the maxq 
+
+Decrementing now, level is 0, I am program 2
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 32 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 31 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 30 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 29 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 28 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 27 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 26 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 25 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 24 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 23 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 22 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 21 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 20 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 19 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 18 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 17 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 16 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 15 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 14 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 13 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 12 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 11 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 10 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 9 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 8 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 7 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 6 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 5 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 4 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 3 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 2 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 1 is the is the iter's left. 0 is the maxq 
+
+Decrementing now, level is 0, I am program 2
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 32 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 31 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 30 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 29 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 28 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 27 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 26 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 25 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 24 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 23 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 22 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 21 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 20 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 19 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 18 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 17 is the is the iter's left. 0 is the maxq 
+
+incrementing now to level 3, I am program 3
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 16 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 15 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 14 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 13 is the is the iter's left. 0 is the maxq 
+
+2 is the pid
+sh is the program name
+0 is the q number. 1 is the idle count. 12 is the is the iter's left. 0 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 5 is the idle count. 8 is the is the iter's left. 0 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 3
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 16 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 15 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 14 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 13 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 12 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 11 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 10 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 9 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 8 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 7 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 6 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 5 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 4 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 3 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 2 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 1 is the is the iter's left. 2 is the maxq 
+
+Decrementing now, level is 1, I am program 3
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 24 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 23 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 22 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 21 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 20 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 19 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 18 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 17 is the is the iter's left. 1 is the maxq 
+
+incrementing now to level 2, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+incrementing now to level 3, I am program 3
+3 is the pid
+sh is the program name
+3 is the q number. 4 is the idle count. 8 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 7 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 6 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 5 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 4 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 3 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 2 is the is the iter's left. 3 is the maxq 
+
+3 is the pid
+sh is the program name
+3 is the q number. 1 is the idle count. 1 is the is the iter's left. 3 is the maxq 
+
+Decrementing now, level is 2, I am program 3
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 16 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 15 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 14 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 13 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 12 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 11 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 10 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 9 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 8 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 7 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 6 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 5 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 4 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 3 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 2 is the is the iter's left. 2 is the maxq 
+
+3 is the pid
+sh is the program name
+2 is the q number. 1 is the idle count. 1 is the is the iter's left. 2 is the maxq 
+
+Decrementing now, level is 1, I am program 3
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 24 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 23 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 22 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 21 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 20 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 19 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 18 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 17 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 16 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 15 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 14 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 13 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 12 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 11 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh is the program name
+1 is the q number. 1 is the idle count. 10 is the is the iter's left. 1 is the maxq 
+
+3 is the pid
+sh QEMU: Terminated
+]0;chrisout@cisc210: ~/proj_4/proj_3/xv6-publicchrisout@cisc210:~/proj_4/proj_3/xv6-public$ exit
+exit
+
+Script done on 2019-12-04 21:24:18-0500

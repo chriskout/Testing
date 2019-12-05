@@ -89,6 +89,11 @@ found:
   p->state = EMBRYO;
   p->pid = nextpid++;
 
+	//chris code
+	p->qnum = 3;
+	p->iter = 8;
+	p->idle = 0;
+
   release(&ptable.lock);
 
   // Allocate kernel stack.
@@ -325,24 +330,66 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
+	int maxq = 0;
   
   for(;;){
     // Enable interrupts on this processor.
     sti();
-
+    
     // Loop over process table looking for process to run.
+	maxq = 0;
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->state != RUNNABLE)
+      //3.1
+	int iterations = p->iter;
+	int idlecount = p->idle;
+	int level = p->qnum;
+	int maxiter = 32 - (level * 8); //math is hard, for better efficiency just use a switch or an array
+	if (maxiter == 32) {
+		maxiter = 500;
+	}
+	if (iterations == 0) {
+		level = level - 1;
+		if (level < 0) level = 0;
+		p->qnum = level;
+		p->idle = 0;
+		p->iter = 32 - (level * 8); //really wish I could do max iter + 8, but what if level == 0 :(
+		cprintf("Decrementing now, level is %d, I am program %d\n", p->qnum, p->pid);
+	}
+	if (idlecount > maxiter) {
+		level = level + 1;
+		if (level > 3) level = 3;
+		p->qnum = level;
+		p->idle = 0;
+		p->iter = 32 - (level * 8);
+		if (p->pid > 2) cprintf("incrementing now to level %d, I am program %d\n", p->qnum, p->pid);
+	}
+	//3.2
+	if (level > maxq && p->state == RUNNABLE) {
+		maxq = level;
+	}
+	//3.3
+	p->idle = p->idle + 1;
+
+     } //closes for loop
+	
+    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+      if(p->state != RUNNABLE || p->qnum < maxq)
         continue;
 
+      
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
       c->proc = p;
       switchuvm(p);
       p->state = RUNNING;
-
+      cprintf("%d is the pid\n", p->pid);  //added
+      cprintf("%s is the program name\n", p->name); //added
+      cprintf("%d is the q number. %d is the idle count. %d is the is the iter's left. %d is the maxq \n\n", p->qnum, p->idle, p->iter, maxq); //added
+      p->idle = 0;
+      p->iter = p->iter - 1; //does this go before or after the below if statement? I feel like it should be above, but the instructions say below... here it will stay
+      if (p->iter < 0) p->iter = 0;
       swtch(&(c->scheduler), p->context);
       switchkvm();
 
@@ -531,4 +578,27 @@ procdump(void)
     }
     cprintf("\n");
   }
+
 }
+/*
+int
+crps()
+{
+	struct proc *p;
+	//Enable interrupts on this processor.
+	sti();
+	acquire(&ptable.lock);
+	cprintf("name, pid, state \n");
+	for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+		if (p->state == SLEEPING) 
+			cprintf("%s, %d SLEEPING \n ", p->name, p->pid);
+		else if ( p->state == RUNNING )
+			cprintf("%s, %d, RUNNING \n", p->name, p->pid );
+		else if ( p->state == RUNNABLE ) 
+			cprintf("%s, %d, RUNNABLE \n", p->name, p->pid);
+
+	}
+	release(&ptable.lock);
+	return 22;
+}
+*/
